@@ -480,7 +480,7 @@ declare namespace postgres {
     | boolean
     | Date // serialized as `string`
     | readonly JSONValue[]
-    | { toJSON(): any } // `toJSON` called by `JSON.stringify`; not typing the return type, typings is strict enough anyway
+    | { toJSON(): JSONValue } // `toJSON` called by `JSON.stringify`
     | {
       readonly [prop: string | number]:
       | undefined
