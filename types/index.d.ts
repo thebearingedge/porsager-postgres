@@ -581,7 +581,7 @@ declare namespace postgres {
     rest: U;
   }
 
-  interface Sql<TTypes extends JSToPostgresTypeMap> {
+  interface Sql<TTypes extends JSToPostgresTypeMap = JSToPostgresTypeMap> {
     /**
      * Query helper
      * @param first Define how the helper behave
@@ -636,7 +636,7 @@ declare namespace postgres {
     prepare?: boolean;
   }
 
-  interface TransactionSql<TTypes extends JSToPostgresTypeMap> extends Sql<TTypes> {
+  interface TransactionSql<TTypes extends JSToPostgresTypeMap = JSToPostgresTypeMap> extends Sql<TTypes> {
     savepoint<T>(cb: (sql: TransactionSql<TTypes>) => T | Promise<T>): Promise<UnwrapPromiseArray<T>>;
     savepoint<T>(name: string, cb: (sql: TransactionSql<TTypes>) => T | Promise<T>): Promise<UnwrapPromiseArray<T>>;
   }
