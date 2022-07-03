@@ -130,10 +130,6 @@ interface PostgresTypeList {
   [name: string]: postgres.PostgresType;
 }
 
-interface JSToPostgresTypeMap {
-  [name: string]: unknown;
-}
-
 declare const PRIVATE: unique symbol;
 
 declare class NotAPromise {
@@ -579,6 +575,10 @@ declare namespace postgres {
   interface Helper<T, U extends readonly any[] = T[]> extends NotAPromise {
     first: T;
     rest: U;
+  }
+
+  interface JSToPostgresTypeMap {
+    [name: string]: unknown;
   }
 
   interface Sql<TTypes extends JSToPostgresTypeMap = JSToPostgresTypeMap> {
